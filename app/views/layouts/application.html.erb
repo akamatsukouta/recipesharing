@@ -1,15 +1,82 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recipesharing</title>
+    <title>CookingApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
   </head>
 
   <body>
+  <header class="header">
+
+   <div class="hamburger-menu">
+        <input type="checkbox" id="menu-btn-check" class="checkbox">
+        <label for="menu-btn-check" class="menu-btn"><span></span></label>
+        <div class="menu-content">
+            <ul>
+                <li>
+                  <% if user_signed_in? %>
+                    <%= link_to 'マイページ' , user_path(current_user.id) %>
+                  <% else %>
+                    <%= link_to '新規登録はこちら', new_user_registration_path %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to 'レシピランキングはこちら', ranking_cookings_path %>
+                </li>
+                <li>
+                  <a href="#">メニューリンク3</a>
+                </li>
+            </ul>
+        </div>
+   </div>
+
+    <div class="upper_side">
+      <div class="nav">
+        <div class="nav_left">
+          <%= link_to image_tag("app-logo.png", class: :logo), root_path %>
+        </div>
+       
+      <% if user_signed_in? %>
+        <div class="nav_center">
+          <%= form_with(url: search_cookings_path, local: true, method: :get, class: "search-form") do |form| %>
+           <%= form.text_field :keyword, placeholder: "料理名を検索", class: "search-input" %>
+           <%= form.submit "検索", class: "search-btn" %>
+          <% end %>
+        </div>
+      <% end %>
+
+        <div class="nav-right">
+           <% if user_signed_in? %>
+            <%= link_to current_user.nickname, user_path(current_user.id) , class: "nav_btn"  %>
+            <%= link_to '料理投稿', new_cooking_path, class: "nav_btn" %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav_btn"  %>
+           <% else %>
+            <%= link_to 'ログイン', new_user_session_path, class: "nav_btn" %>
+            <%= link_to '新規登録', new_user_registration_path, class: "nav_btn" %>
+           <% end %>
+        </div>
+
+      </div>
+    </div>
+  </header>
     <%= yield %>
+    <footer class="footer-contents">
+      <p class="footer-explain">RYORITOKO</p>
+      <h2 class="footer-title">今すぐ無料ダウンロード!</h2>
+       <div class='store-btn'>
+        <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
+        <%= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>
+       </div>
+    </footer>
   </body>
 </html>
