@@ -1,3 +1,4 @@
 class CookingsController < ApplicationController
-  root to: 'cookings#index'
+  def index
+  end
 end
