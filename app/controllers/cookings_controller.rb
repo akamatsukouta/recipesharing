@@ -21,6 +21,7 @@ class CookingsController < ApplicationController
     @cooking = Cooking.find(params[:id])
     @comment = Comment.new
     @comments = @cooking.comments.includes(:user)
+    @like = Like.new
   end
 
   def edit
