@@ -21,19 +21,27 @@
         <label for="menu-btn-check" class="menu-btn"><span></span></label>
         <div class="menu-content">
             <ul>
+               <% if user_signed_in? %>
                 <li>
-                  <% if user_signed_in? %>
-                    <%= link_to 'マイページ'  %>
-                  <% else %>
-                    <%= link_to '新規登録はこちら', new_user_registration_path %>
-                  <% end %>
+                  <%= link_to 'マイページ'%>    
                 </li>
                 <li>
                   <%= link_to 'レシピランキングはこちら', ranking_cookings_path %>
                 </li>
                 <li>
-                  <a href="#">メニューリンク3</a>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
                 </li>
+               <% else %>
+                <li>
+                  <%= link_to 'ログインはこちら', new_user_session_path%>
+                </li>
+                <li>
+                  <%= link_to '新規登録はこちら', new_user_registration_path%>
+                </li>
+                <li>
+                  <%= link_to 'レシピランキングはこちら', ranking_cookings_path %>
+                </li>
+               <% end %>
             </ul>
         </div>
    </div>
@@ -55,7 +63,6 @@
 
         <div class="nav-right">
            <% if user_signed_in? %>
-            <%= link_to current_user.nickname, class: "nav_btn" %>
             <%= link_to '料理投稿', new_cooking_path, class: "nav_btn" %>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav_btn"  %>
            <% else %>
