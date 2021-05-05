@@ -1,0 +1,34 @@
+<div class="border"></div>
+<div class="user-details">
+ <div class="main">
+  <div class="inner">
+    <div class="user_wrapper">
+      <h1 class="page-heading">
+        <%= "#{@user.nickname}さんの情報" %>
+      </h1>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="user-details1">ニックネーム</th>
+            <td class="user-details2"><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th class="user-details1">性別</th>
+            <td class="user-details2"><%= @user.sex%></td>
+          </tr>
+          <tr>
+            <th class="user-details1">料理経験</th>
+            <td class="user-details2"><%= @user.cooking_experience%></td>
+          </tr>
+        </tbody>
+      </table>
+      <h1 class="page-heading">
+        <%= "#{@user.nickname}さんのレシピ投稿" %>
+      </h1>
+      <div class="user-recipe">
+         <%= render partial: 'cookings/cooking',local:{ cooking: @cookings} %>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
