@@ -30,6 +30,12 @@ class CookingsController < ApplicationController
     cooking.update(cooking_params)
   end
 
+  def destroy
+    cooking = Cooking.find(params[:id])
+    cooking.destroy
+    redirect_to root_path
+  end
+
   private
   def cooking_params
     params.require(:cooking).permit(:cooking_name, :material, :recipe, :point1, :point2, :point3, :production_time, images:[]).merge(user_id: current_user.id)
