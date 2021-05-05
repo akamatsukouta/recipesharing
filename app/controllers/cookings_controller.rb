@@ -24,7 +24,11 @@ class CookingsController < ApplicationController
   def edit
     @cooking = Cooking.find(params[:id])
   end
-
+     
+  def update
+    cooking = Cooking.find(params[:id])
+    cooking.update(cooking_params)
+  end
 
   private
   def cooking_params
