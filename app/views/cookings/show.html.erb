@@ -65,4 +65,26 @@
 
    </li> 
   </ul>
+
+  <div class="cooking-comments">
+    <% if current_user.id %>
+     <%= form_with(model: [@cooking, @comment], local: true) do |f| %>
+      <div class="field">
+        <%= f.label :comment, "コメント" %><br />
+        <%= f.text_field :text, id:"comment_text"%>
+      </div>
+      <div class="actions">
+        <%= f.submit "送信", class:"form_btn"%>
+      </div>
+     <% end %>
+    <% end %>
+    <ul class="comments_lists">
+      <% @comments.each do |comment| %>
+        <li class="comments_list">
+           <%= comment.text%>
+           <%= link_to comment.user.nickname, user_path(@cooking.user_id), class: "comment_user"%>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
