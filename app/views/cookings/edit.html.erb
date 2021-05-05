@@ -1,0 +1,80 @@
+<div class="border"></div>
+<%= form_with model: @cooking, local:true do |f|%>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">料理名</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :cooking_name, class:"input-default", id:"cooking_name", placeholder:"例:カレー", maxlength:"15" %>
+    </div>
+
+    <div class="view_box">
+       <label>料理完成画像を載せましょう。</label>
+       <%= f.file_field :images, name: 'cooking[images][]', id: 'cooking_images', type:"file", class:"file" %>
+    </div>  
+     
+    <div class="form-group">
+      <div class="form-text-wrap">
+        <label class="form-text">材料</label>  
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :material, class:"form-default", id:"cooking_material", placeholder:"例：カレールー 1/2箱, もも肉200g, にんじん一本, 玉ねぎ一個, ジャガイモ一個, 水830ml, サラダ油適量 （必須 1,000文字まで）", rows:"6" ,maxlength:"1000" %>
+    </div>
+
+    <div class="form-group">
+      <div class="form-text-wrap">
+        <label class="form-text">レシピ</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :recipe, class:"form-default", id:"cooking_recipe", placeholder:"例: 1,ジャガイモは皮をむき、芽を取り除く。他の野菜も皮を剥いておく。2,もも肉と野菜を一口大に切る。3,フライパンにサラダ油を引いたら中火で肉を炒めます。4,野菜を加え、玉ねぎが透き通るくらいまで炒める。5,水を加えて15~20分煮込みます。6,カレールーを加えて完全に溶かしながら10分煮込んで完成です。(必須 5,000文字まで)",rows:"7", maxlength:"5000" %>
+    </div>
+
+     <div class="form-group">
+      <div class="form-text-wrap">
+        <label class="form-text">ポイント１</label>  
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :point1,  class:"form-default", id:"cooking_point1", placeholder:"例:水を加えたら、まずは強火。沸騰したら火を少し弱めてアクを取り、鍋の蓋を少し開けて、弱火から中火で約20分間、コトコト沸騰を続けましょう。", rows:"5" ,maxlength:"1000" %>
+    </div>
+    <div class="view_box">
+       <label>画像</label>
+       <%= f.file_field :images, name: 'cooking[images][]', id: 'cooking_images', type:"file", class:"file" %>
+    </div>  
+
+    <div class="form-group">
+      <div class="form-text-wrap">
+        <label class="form-text">ポイント2</label>  
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :point2, class:"form-default", id:"cooking_point2", placeholder:"例:カレールーをと溶かす時は、いったん火を止めてから！火をつけたまま、熱い鍋にカレールーを入れると、カレールーが溶けにくくなることがあります。必ずいったん火を止めて、カレールーを割り入れ、おたまでまぜて、よく溶かしましょう。", rows:"5" ,maxlength:"1000" %>
+    </div>
+    <div class="view_box">
+       <label>画像</label>
+       <%= f.file_field :images, name: 'cooking[images][]', id: 'cooking_images', type:"file", class:"file" %>
+    </div>  
+    
+    <div class="form-group">
+      <div class="form-text-wrap">
+        <label class="form-text">ポイント3</label>  
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :point3, class:"form-default", id:"cooking_point3", placeholder:"例:仕上げは「とろみが出るまで弱火で約5分」カレールーが溶けたら、火をつけ、時々まぜながら、弱火で約5分煮込み、とろみがついたら出来上がりです。", rows:"5" ,maxlength:"1000" %>
+    </div>
+    <div class="view_box">
+       <label>画像</label>
+       <%= f.file_field :images, name: 'cooking[images][]', id: 'cooking_images', type:"file", class:"file" %>
+    </div>  
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">制作時間</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :production_time, class:"input-default", id:"cooking_production_time", placeholder:"例:30~40分", maxlength:"15" %>
+    </div>
+
+    <div class='register-btn'>
+      <%= f.submit "投稿" ,class:"register-green-btn" %>
+    </div>
+<% end %>
