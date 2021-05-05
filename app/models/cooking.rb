@@ -10,6 +10,16 @@ class Cooking < ApplicationRecord
   validates :production_time, presence: true
   validate :image_length
 
+  def self.search(search)
+    if search != ""
+      Cooking.where('cooking_name LIKE(?)', "%#{search}%")
+    else
+      Cooking.all
+    end
+  end   
+
+  private
+
   def image_length
     if images.length >= 5
       errors.add(:images, "4枚以内にしてください")
