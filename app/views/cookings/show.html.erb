@@ -66,6 +66,15 @@
    </li> 
   </ul>
 
+  <div class="like-good">
+    <h3>いいね件数: <%= @cooking.likes.count%></h3>
+    <% if current_user.alredy_liked?(@cooking) %>
+      <%= button_to 'いいねを取り消す', cooking_like_path(@cooking), method: :delete %>
+    <% else %>
+      <%= button_to 'いいね', cooking_likes_path(@cooking) %>
+    <% end %>
+  </div>
+
   <div class="cooking-comments">
     <% if current_user.id %>
      <%= form_with(model: [@cooking, @comment], local: true) do |f| %>
