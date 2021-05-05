@@ -4,7 +4,7 @@
      <div class="slider">
       <% cooking.images.each do |image| %>
       <div class='cooking-img-content'>
-       <%= link_to image_tag(image, class: 'sized') %>
+       <%= link_to image_tag(image, class: 'sized'),cooking_path(cooking.id)%>
       </div>
       <% end %>
      </div>
