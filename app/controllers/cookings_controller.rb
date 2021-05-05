@@ -36,6 +36,10 @@ class CookingsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @cookings = Cooking.search(params[:keyword])
+  end
+
   private
   def cooking_params
     params.require(:cooking).permit(:cooking_name, :material, :recipe, :point1, :point2, :point3, :production_time, images:[]).merge(user_id: current_user.id)
