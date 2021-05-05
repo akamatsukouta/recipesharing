@@ -21,6 +21,11 @@ class CookingsController < ApplicationController
     @cooking = Cooking.find(params[:id])
   end
 
+  def edit
+    @cooking = Cooking.find(params[:id])
+  end
+
+
   private
   def cooking_params
     params.require(:cooking).permit(:cooking_name, :material, :recipe, :point1, :point2, :point3, :production_time, images:[]).merge(user_id: current_user.id)
