@@ -57,7 +57,7 @@
 
       <tr>
        <th class="details-recipe1">ユーザー名</th>
-       <td class="details-recipe2"><%= link_to "#{@cooking.user.nickname}"%></td>
+       <td class="details-recipe2"><%= link_to "#{@cooking.user.nickname}",user_path(@cooking.user_id)%></td>
       </tr>
 
      </tbody>
