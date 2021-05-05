@@ -1,5 +1,6 @@
 class CookingsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
   
   def index
     @cookings = Cooking.order("created_at DESC")
@@ -53,6 +54,13 @@ class CookingsController < ApplicationController
   private
   def cooking_params
     params.require(:cooking).permit(:cooking_name, :material, :recipe, :point1, :point2, :point3, :production_time, images:[]).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    @cooking = Cooking.find(params[:id])
+    unless current_user.id == @cooking.user_id
+      redirect_to action: :index
+    end
   end
   
 end
