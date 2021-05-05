@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   root to: 'cookings#index'
 
   resources :users, only: [:show]
-  resources :cookings, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :cookings, only: [:new, :create, :show, :edit, :update, :destroy] do
+   collection do
+    get 'search'
+   end
+  end
 end
