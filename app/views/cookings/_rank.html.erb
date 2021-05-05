@@ -1,0 +1,13 @@
+<li class='list'>
+  <div class="slider">
+  <% cooking.images.each do |image| %>
+  <div class='cooking-img-content'>
+    <%= link_to image_tag(image, class: 'sized'), cooking_path(cooking.id) %>
+  </div>
+  <% end %>
+ </div>
+ <div class="cooking-info">
+   <h3 class="recipe-name"><%= cooking.cooking_name %></h3>
+   <h3 class="recipe-time"><%= cooking.production_time %></h3>
+ </div>
+</li>
