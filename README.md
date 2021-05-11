@@ -1,27 +1,63 @@
-# README
+README.md
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ名
+### recipesharing(レシピ共有アプリ)
 
-Things you may want to cover:
+## 概要
+##### ユーザー新規登録機能
+##### ユーザーログイン機能
+##### ユーザーログアウト機能
+##### レシピ投稿機能
+##### レシピに対するコメント機能
+##### レシピに対するいいね機能
+##### レシピいいね数に応じてのランキング機能
 
-* Ruby version
 
-* System dependencies
+## 本番環境
+https://murmuring-retreat-81222.herokuapp.com/
 
-* Configuration
+###### ID/Pass
+ #### ・ID: ak
+ #### ・Pass: 678
 
-* Database creation
+##### ログイン情報(テスト用)
+ #### ・Eメール: test@7.com
+ #### ・パスワード: asd678
+ 
+## 制作背景(意図)
+##### オリジナルアプリを作る過程として最初はどういうものを作るか迷い、いろんなサイトを巡りみんながオリジナルで作っているアプリはどのようなものかと探り、最終的に私は自分が普段よくしていることに関してアプリを作ることに決めました。そして私が普段よくしていることが料理でこのアプリでレシピを共有できれば自分の作ったことがない料理や自分の作ったことのある料理や自分の得意な料理もまた違う人のレシピを見ることで色々アレンジしたりすることができるんじゃないかと思いこのアプリを作りました。
 
-* Database initialization
+## DEMO
 
-* How to run the test suite
+## 工夫したポイント
+##### このアプリではレシピを投稿する際に画像を複数使用して投稿するため画像を選択したらプレビューが出るようにしたり画像を表示したと同時に「画像を削除します」というようにすぐに画像を削除できるように実装しました。
 
-* Services (job queues, cache servers, search engines, etc.)
+## 使用技術（開発環境）
 
-* Deployment instructions
+### バックエンド
+Ruby, Ruby on Rails
 
-* ...
+### フロントエンド
+HTML, CSS, Javascript, Jquery
+
+### データーベース
+PostgreSQL
+
+### WEBサーバー
+Heroku
+
+### ソース管理
+Git, GitHubDesctop
+
+### エディタ
+VSCode
+
+## 課題や今後実装したい機能
+##### 課題はJavascriptで思った通りの機能がなかなか実装できずに時間を割いてしまったことです。今後はこの経験を生かしてうまく実装できなかったら初心に戻りいろんな人の意見やサイトを参考にして実装を進めていきたいと思いました。
+##### 今後はPHPやjqueryをもっといろんなアプリに活用できるように学び、このアプリでも画像だけではなく動画を投稿できるように実装していきたいと思います
+
+
+## DB設計
 
 ## users テーブル
 
