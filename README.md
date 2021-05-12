@@ -21,8 +21,8 @@ README.md
 https://murmuring-retreat-81222.herokuapp.com/
 
 ID/Pass
-  ・ID: ak
-  ・Pass: 678
+・ID: ak
+・Pass: 678
  
  ログイン情報(テスト用)
   ・Eメール: test@7.com
